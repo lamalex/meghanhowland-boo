@@ -5,63 +5,142 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SVG Scroll Animation</title>
-    <style>
-        body,
-        html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(rgb(10, 10, 10), rgb(214, 214, 214));
-            background-size: 100% 200vh;
-        }
 
-        @keyframes scrollBg {
-            from {
-                background-position: 0 0;
+    <head>
+        <!-- ... other head elements ... -->
+
+        <!-- Preloading SVG assets -->
+        <link rel="preload" href="asset_1.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_2.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_3.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_4.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_5.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_6.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_7.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_8.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_9.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_10.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_11.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_12.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_13.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_14.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_15.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_16.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_17.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_18.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_19.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_20.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_21.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_22.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_23.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_24.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_25.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_26.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_27.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_28.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_29.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_30.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_31.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_32.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_33.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_34.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_35.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_36.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_37.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_38.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_39.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_40.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_41.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_42.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_43.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_44.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_45.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_46.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_47.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_48.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_49.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_50.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_51.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_52.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_54.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_55.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_56.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_57.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_58.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_59.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_60.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_61.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_62.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_63.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_64.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_65.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_66.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_67.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_68.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_69.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_70.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_71.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_72.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_73.svg" as="image" type="image/svg+xml">
+        <link rel="preload" href="asset_74.svg" as="image" type="image/svg+xml">
+
+        <style>
+            body,
+            html {
+                height: 100%;
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: linear-gradient(rgb(10, 10, 10), rgb(214, 214, 214));
+                background-size: 100% 200vh;
             }
 
-            to {
-                background-position: 0 -100vh;
-            }
-        }
+            @keyframes scrollBg {
+                from {
+                    background-position: 0 0;
+                }
 
-        @keyframes flyUp {
-            from {
+                to {
+                    background-position: 0 -100vh;
+                }
+            }
+
+            @keyframes flyUp {
+                from {
+                    bottom: -10%;
+                }
+
+                to {
+                    bottom: 110%;
+                }
+            }
+
+            #ghostContainer {
+                position: fixed;
+                left: 0;
                 bottom: -10%;
+                display: flex;
+                align-items: center;
+                animation: flyUp 2.5s linear infinite;
             }
 
-            to {
-                bottom: 110%;
+            #mySvg {
+                width: 100px;
+                height: 100px;
             }
-        }
 
-        #ghostContainer {
-            position: fixed;
-            left: 0;
-            bottom: -10%;
-            display: flex;
-            align-items: center;
-            animation: flyUp 2.5s linear infinite;
-        }
+            h1 {
+                margin: 0;
+                padding: 0 10px;
+            }
 
-        #mySvg {
-            width: 100px;
-            height: 100px;
-        }
-
-        h1 {
-            margin: 0;
-            padding: 0 10px;
-        }
-
-        .onRight {
-            left: auto;
-            right: 0;
-            flex-direction: row-reverse;
-            /* Reverse the order of child elements */
-        }
-    </style>
-</head>
+            .onRight {
+                left: auto;
+                right: 0;
+                flex-direction: row-reverse;
+                /* Reverse the order of child elements */
+            }
+        </style>
+    </head>
 
 <body>
     <div id="ghostContainer">
