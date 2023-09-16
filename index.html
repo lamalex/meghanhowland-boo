@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Scroll Animation</title>
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: rgb(139, 137, 137);
+            background-size: 100% 300vh;
+            animation: scrollBg 10s linear infinite;
+        }
+
+        @keyframes scrollBg {
+            from {
+                background-position: 0 0;
+            }
+
+            to {
+                background-position: 0 -100vh;
+            }
+        }
+
+        @keyframes flyUp {
+            from {
+                bottom: -10%;
+            }
+
+            to {
+                bottom: 110%;
+            }
+        }
+
+        #ghostContainer {
+            position: fixed;
+            left: 0;
+            bottom: -10%;
+            display: flex;
+            align-items: center;
+            animation: flyUp 1.8s linear infinite;
+        }
+
+        #mySvg {
+            width: 100px;
+            height: 100px;
+        }
+
+        h1 {
+            margin: 0;
+            padding: 0 10px;
+        }
+
+        .onRight {
+            left: auto;
+            right: 0;
+            flex-direction: row-reverse;
+            /* Reverse the order of child elements */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ghostContainer">
+        <object id="mySvg" type="image/svg+xml" data="assets/asset_1.svg">Your browser does not support SVGs</object>
+        <h1 id="loveMessage">I love you</h1>
+    </div>
+
+    <script>
+        let ghostContainer = document.getElementById('ghostContainer');
+        let onRight = false;
+        let loveMessage = document.getElementById('loveMessage');
+
+
+        function getRandomAsset() {
+            let randomNum = Math.floor(Math.random() * 74) + 1; // Random number between 1 and 74
+            return `assets/asset_${randomNum}.svg`;
+        }
+
+        function getRandomPadding() {
+            return Math.floor(Math.random() * 100) + "px"; // Random padding value between 0px and 20px
+        }
+
+        let messages = [
+            "You make my broomstick fly.",
+            "Want to bob for apples... or just make out?",
+            "You're the sausage I've been craving.",
+            "I'd like to be the candy you're unwrapping tonight.",
+            "You can haunt my bed any night.",
+            "Let's get bewitched under the sheets.",
+            "How about we light up the grill and see where things sizzle?",
+            "I'd like a taste of your magic potion.",
+            "Is that a hot dog in your pocket, or are you just happy to see me?",
+            "Let's make some midnight mischief.",
+            "I've got a special treat for you tonight.",
+            "Let's get lost in the haunted house; it's cozier in the dark.",
+            "I'm under your spell, in more ways than one.",
+            "How about a late - night hot dog picnic ?",
+            "Trick or treat ? I know which one I'd pick with you.",
+            "I crave you more than any Halloween candy.",
+            "Your love is the most delicious treat.",
+            "How about we make our own hot - dogging memories?",
+            "I've got a sweet tooth, and only you can satisfy it.",
+            "You're the kind of ghost I wouldn't mind getting spooked by.",
+            "With you, every day feels like Halloween.",
+            "I relish every moment with you.",
+            "Our love is magical, like a witch's brew.",
+            "I'm nuts about you, like toppings on a hot dog.",
+            "I'd cross a haunted forest for you.",
+            "Our love sizzles, just like a hot dog on a grill.",
+        ];
+
+        function getRandomMessage() {
+            let randomIndex = Math.floor(Math.random() * messages.length);
+            return messages[randomIndex];
+        }
+
+        ghostContainer.addEventListener("animationiteration", function () {
+            // Switch sides
+            if (onRight) {
+                ghostContainer.style.left = "0";
+                ghostContainer.style.right = "auto";
+                ghostContainer.style.paddingLeft = getRandomPadding();
+                ghostContainer.style.paddingRight = "0";
+                ghostContainer.classList.remove('onRight');
+            } else {
+                ghostContainer.style.right = "0";
+                ghostContainer.style.left = "auto";
+                ghostContainer.style.paddingRight = getRandomPadding();
+                ghostContainer.style.paddingLeft = "0";
+                ghostContainer.classList.add('onRight');
+            }
+            onRight = !onRight;
+
+            let svgElement = document.getElementById('mySvg');
+            svgElement.data = getRandomAsset();
+            loveMessage.textContent = getRandomMessage();
+        });
+    </script>
+</body>
+
+</html>
